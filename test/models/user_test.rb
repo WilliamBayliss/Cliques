@@ -5,6 +5,6 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "it exists" do 
-    
+    assert_equal "test@test.com", users(:one).email
   end
 end
