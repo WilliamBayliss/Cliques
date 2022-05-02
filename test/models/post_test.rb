@@ -20,8 +20,8 @@ class PostTest < ActiveSupport::TestCase
 
   test "it can be built from a User model" do
     user = User.new
-    post = user.posts.build(content: "test")
-    assert_equal user.id, post.id
+    post = user.posts.build
+    assert_equal user, post.user
   end
 
   test "it has a retreivable user" do
