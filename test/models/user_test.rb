@@ -13,4 +13,10 @@ class UserTest < ActiveSupport::TestCase
     user.posts.build
     assert_not nil, user.posts
   end
+
+  test "it has retreivable posts" do
+    user = User.new
+    post = user.posts.build
+    assert_equal post, user.posts.first
+  end
 end
