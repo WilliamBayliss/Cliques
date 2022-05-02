@@ -23,4 +23,10 @@ class PostTest < ActiveSupport::TestCase
     post = user.posts.build(content: "test")
     assert_equal user.id, post.id
   end
+
+  test "it has a retreivable user" do
+    user = User.new
+    post = user.posts.build(content: "test")
+    assert_equal user, post.user
+  end
 end
