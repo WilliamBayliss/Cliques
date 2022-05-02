@@ -1,0 +1,2 @@
+class Clique < ApplicationRecord
+end
