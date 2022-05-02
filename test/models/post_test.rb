@@ -9,6 +9,11 @@ class PostTest < ActiveSupport::TestCase
     assert_equal "MyString", posts(:one).content
   end
 
+  test "it won't save without content" do
+    post = Post.new
+    assert_not post.save
+  end
+
   test "it has a user_id as foreign key" do
     assert_equal 1, posts(:one).user_id
   end
