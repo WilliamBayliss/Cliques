@@ -1,4 +1,4 @@
 class Membership < ApplicationRecord
-    has_one :user
-    has_one :clique
+    belongs_to :user
+    belongs_to :clique
 end
