@@ -10,7 +10,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "it won't save without content" do
-    post = Post.new
+    post = Post.new(content: "test")
     assert_not post.save
   end
 
@@ -19,13 +19,13 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "it can be built from a User model" do
-    user = User.new
-    post = user.posts.build
+    user = User.new(id: 1)
+    post = user.posts.build(content: "test")
     assert_equal user, post.user
   end
 
   test "it has a retreivable user" do
-    user = User.new
+    user = User.new(id: 1)
     post = user.posts.build(content: "test")
     assert_equal user, post.user
   end
