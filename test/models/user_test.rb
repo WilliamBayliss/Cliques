@@ -19,4 +19,8 @@ class UserTest < ActiveSupport::TestCase
   test "it has memberships" do
     assert_not_nil users(:one).memberships
   end
+
+  test "it has retreivable cliques" do
+    assert_equal cliques(:one), users(:one).cliques.first
+  end
 end
