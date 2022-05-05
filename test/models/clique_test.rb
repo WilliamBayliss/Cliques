@@ -16,4 +16,7 @@ class CliqueTest < ActiveSupport::TestCase
     assert_equal memberships(:one), cliques(:one).memberships.first
   end
   
+  test "it has retreivable users" do
+    assert_equal users(:one), cliques(:one).users.first
+  end
 end
