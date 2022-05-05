@@ -19,4 +19,8 @@ class UserTest < ActiveSupport::TestCase
     post = user.posts.build
     assert_equal post, user.posts.first
   end
+
+  test "it has memberships" do
+    assert_not_nil users(:one).memberships
+  end
 end
