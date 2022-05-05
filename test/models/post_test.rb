@@ -14,8 +14,8 @@ class PostTest < ActiveSupport::TestCase
     assert_not post.save
   end
 
-  test "it has a user_id as foreign key" do
-    assert_equal 1, posts(:one).user_id
+  test "it has a user" do
+    assert_equal users(:one), posts(:one).user
   end
 
   test "it can be built from a User model" do
