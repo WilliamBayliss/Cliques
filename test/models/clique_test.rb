@@ -12,5 +12,8 @@ class CliqueTest < ActiveSupport::TestCase
     assert_equal "description", cliques(:one).description
   end
 
+  test "it has memberships" do
+    assert_equal memberships(:one), cliques(:one).memberships.first
+  end
   
 end
