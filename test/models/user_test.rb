@@ -9,15 +9,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "it can have posts" do
-    user = User.new
-    user.posts.build
-    assert_not nil, user.posts
+    assert_not nil, users(:one).posts
   end
 
   test "it has retreivable posts" do
-    user = User.new
-    post = user.posts.build
-    assert_equal post, user.posts.first
+    assert_equal posts(:one), users(:one).posts.first
   end
 
   test "it has memberships" do
