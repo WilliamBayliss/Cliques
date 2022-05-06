@@ -7,4 +7,8 @@ class CommentTest < ActiveSupport::TestCase
   test "it has content" do
     assert_equal "test", comments(:one).content
   end
+
+  test "it has a user" do
+    assert_equal users(:one), comments(:one).user
+  end
 end
