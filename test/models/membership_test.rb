@@ -8,4 +8,8 @@ class MembershipTest < ActiveSupport::TestCase
   test "it has a user" do
     assert_equal users(:one), @membership.user
   end
+
+  test "it has a clique" do
+    assert_equal cliques(:one), @membership.clique
+  end
 end
