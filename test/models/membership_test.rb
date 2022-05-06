@@ -1,7 +1,11 @@
 require "test_helper"
 
 class MembershipTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @membership = Membership.new(user: users(:one), clique: cliques(:one))
+  end
+  
+  test "it has a user" do
+    assert_equal users(:one), @membership.user
+  end
 end
