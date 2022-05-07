@@ -11,4 +11,8 @@ class CommentTest < ActiveSupport::TestCase
   test "it has a user" do
     assert_equal users(:one), comments(:one).user
   end
+
+  test "it has comments" do
+    assert_equal comments(:two), comments(:one).comments.first
+  end
 end
