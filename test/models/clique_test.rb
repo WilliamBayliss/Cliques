@@ -19,4 +19,8 @@ class CliqueTest < ActiveSupport::TestCase
   test "it has retreivable users" do
     assert_equal users(:one), cliques(:one).users.first
   end
+
+  test "it has adminships" do
+    assert_equal adminships(:one), cliques(:one).adminships.first
+  end
 end
