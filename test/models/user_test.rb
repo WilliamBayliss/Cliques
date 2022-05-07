@@ -23,4 +23,8 @@ class UserTest < ActiveSupport::TestCase
   test "it has retreivable cliques" do
     assert_equal cliques(:one), users(:one).cliques.first
   end
+
+  test "it has adminships" do
+    assert_equal adminships(:one), users(:one).adminships.first
+  end
 end
