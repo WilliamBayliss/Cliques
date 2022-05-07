@@ -27,4 +27,8 @@ class UserTest < ActiveSupport::TestCase
   test "it has adminships" do
     assert_equal adminships(:one), users(:one).adminships.first
   end
+
+  test "it has cliques through adminships" do
+    assert_equal cliques(:two), users(:two).cliques.first
+  end
 end
