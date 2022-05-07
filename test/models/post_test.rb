@@ -29,4 +29,7 @@ class PostTest < ActiveSupport::TestCase
     post = user.posts.build(content: "test")
     assert_equal user, post.user
   end
+  test "it has comments" do
+    assert_equal posts(:one).comments.first, comments(:one)
+  end
 end
