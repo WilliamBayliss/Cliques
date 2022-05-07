@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :memberships
   has_many :cliques, through: :memberships
+
+  has_many :adminships
+  has_many :cliques, through: :adminships
 end
