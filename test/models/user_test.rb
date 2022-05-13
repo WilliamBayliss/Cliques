@@ -8,6 +8,10 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "test@test.com", users(:one).email
   end
 
+  test "it has username" do
+    assert_equal "user", users(:one).username
+  end
+
   test "it can have posts" do
     assert_not nil, users(:one).posts
   end
