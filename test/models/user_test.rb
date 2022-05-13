@@ -12,6 +12,14 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "user", users(:one).username
   end
 
+  test "it has a birthday" do
+    assert_equal Date.new(2001, 12, 12), users(:one).birthday
+  end
+
+  test "it has a reputation" do
+    assert_equal 0, users(:one).reputation
+  end
+
   test "it can have posts" do
     assert_not nil, users(:one).posts
   end
@@ -36,3 +44,4 @@ class UserTest < ActiveSupport::TestCase
     assert_equal cliques(:two), users(:two).cliques.first
   end
 end
+ 
