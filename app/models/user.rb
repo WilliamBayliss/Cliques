@@ -10,4 +10,10 @@ class User < ApplicationRecord
 
   has_many :adminships
   has_many :cliques, through: :adminships
+
+  attr_writer :login
+
+  def login
+    @login || self.username || self.email
+  end
 end
