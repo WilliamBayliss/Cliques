@@ -1,8 +1,10 @@
 require "test_helper"
 
 class CliquesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @clique = cliques(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
