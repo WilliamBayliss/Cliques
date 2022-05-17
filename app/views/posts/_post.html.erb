@@ -1,12 +1,4 @@
-<div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
-    <%= post.content %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this post', edit_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div id="<%= dom_id post %>" class="col-span-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-10">
+  <h1 class="text-xl"><%= post.title %></h1>
+  <p class="text-m"><%= post.content %></p>
 </div>
