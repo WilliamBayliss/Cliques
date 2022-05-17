@@ -6,20 +6,20 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="">
       <div class="mb-4">
-        <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username", html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
       <div class="mb-4">
-        <%= f.email_field :email, autocomplete: "email", placeholder: "Email" %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  %>
       </div>
       <div class="mb-4">
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  %>
         <br />
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
       </div>
       <div class="mb-4">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  %>
       </div>
       <div class="mb-4">
         <%= f.submit "Continue", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
