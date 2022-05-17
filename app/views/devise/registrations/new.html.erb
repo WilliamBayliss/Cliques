@@ -1,17 +1,24 @@
-<div class="justify-between items-center grid grid-cols-2 gap-4">
-  <div class="m-10">
+<div class="grid grid-cols-6 gap-4 items-center">
+  <div class="col-span-3 m-10">
     <h1 class="text-6xl m-10 text-blue-500">Sign up</h1>
   </div>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-10" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "col-span-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-10" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="">
       <div class="mb-4">
+        <%= f.label :username, class: "lock text-gray-700 text-sm font-bold mb-2" %>
         <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
       <div class="mb-4">
+        <%= f.label :email, class: "lock text-gray-700 text-sm font-bold mb-2" %>
         <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  %>
       </div>
       <div class="mb-4">
+        <%= f.label :birthday, class: "lock text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.date_field :birthday %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :password, class: "lock text-gray-700 text-sm font-bold mb-2" %>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  %>
         <br />
         <% if @minimum_password_length %>
@@ -19,6 +26,7 @@
         <% end %>
       </div>
       <div class="mb-4">
+        <%= f.label :comfirm_password, class: "lock text-gray-700 text-sm font-bold mb-2" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  %>
       </div>
       <div class="mb-4">
