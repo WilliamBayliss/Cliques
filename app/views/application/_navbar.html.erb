@@ -2,7 +2,7 @@
     <div class="container flex flex-wrap justify-between items-center mx-auto">
         
         <h1 class="">CLIQUES</h1>
-        <div class="justify-self-center">
+        <div>
             <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
               type="search" name="search" placeholder="Search">
             <button type="submit" class="justify-self-center top-0 mt-5 mr-4">
@@ -16,7 +16,20 @@
             </button>
         </div>
         <% if user_signed_in? %>
-            <% link_to destroy_user_session, "Log out" %>
+        <%= link_to "Log out", destroy_user_session_path %>
+        <% else %>
+        <div class="space-x-4">
+          <%= link_to new_user_session_path do %>
+          <button class="bg-transparent hover:bg-blue-300 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            <h1>Sign in</h1>
+          </button>
+          <% end %>   
+          <%= link_to new_user_registration_path do %>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <h1>Sign up</h1>
+          </button>
+          <% end %>
+        </div
         <% end %>
     </div>
 
