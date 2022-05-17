@@ -8,6 +8,7 @@ class CliquesController < ApplicationController
 
   # GET /cliques/1 or /cliques/1.json
   def show
+    @clique = Clique.find(params[:id])
   end
 
   # GET /cliques/new
