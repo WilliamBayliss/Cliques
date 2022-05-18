@@ -18,6 +18,10 @@ class PostTest < ActiveSupport::TestCase
     assert_equal users(:one), posts(:one).user
   end
 
+  test "it has a clique" do
+    assert_equal cliques(:one), posts(:one).clique
+  end
+
   test "it can be built from a User model" do
     user = User.new(id: 1)
     post = user.posts.build(content: "test")
