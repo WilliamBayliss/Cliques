@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_17_161126) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_18_034846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_161126) do
     t.string "commentable_type"
     t.bigint "commentable_id"
     t.string "title"
+    t.bigint "clique_id", null: false
+    t.index ["clique_id"], name: "index_posts_on_clique_id"
     t.index ["commentable_type", "commentable_id"], name: "index_posts_on_commentable"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -82,5 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_161126) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "posts", "cliques"
   add_foreign_key "posts", "users"
 end
