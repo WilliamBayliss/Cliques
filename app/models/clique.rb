@@ -4,4 +4,6 @@ class Clique < ApplicationRecord
 
     has_many :adminships
     has_many :administrators, through: :adminships, source: :user
+
+    has_many :posts, dependent: :destroy
 end
