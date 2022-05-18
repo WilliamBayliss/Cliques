@@ -27,4 +27,8 @@ class CliqueTest < ActiveSupport::TestCase
   test "it has administrators through adminships" do
     assert_equal users(:one), cliques(:one).administrators.first
   end
+
+  test "it has posts" do
+    assert_equal posts(:one), cliques(:one).posts.first
+  end
 end
