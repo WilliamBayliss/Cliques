@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_many :comments
 
   has_many :memberships
-  has_many :cliques, through: :memberships
+  has_many :cliques, through: :memberships, as: :member
 
   has_many :adminships
-  has_many :cliques, through: :adminships
+  has_many :admin_cliques, through: :adminships, as: :administrator, source: "clique"
 
   attr_writer :login
 
