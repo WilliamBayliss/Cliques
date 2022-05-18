@@ -19,7 +19,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference("Post.count") do
-      post posts_url, params: { post: { content: @post.content } }
+      post posts_url, params: { post: { clique_id: cliques(:one).id, content: @post.content } }
     end
 
     assert_redirected_to post_url(Post.last)
