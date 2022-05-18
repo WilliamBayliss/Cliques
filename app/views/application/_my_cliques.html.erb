@@ -1,0 +1,23 @@
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mt-28 mb-4">
+    <h1 class="text-xl">My Cliques</h1>
+    <div class="grid grid-rows-5 overflow-x-auto">
+    <% current_user.cliques.each do |clique| %>
+      <div class="grid-rows-1 mt-3 mb-3 break-words">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mt-28 mb-4">
+            <h2 class="text-xl"><%= link_to clique.title, cliques_path(clique) %></h2>
+            <h4 class="text-sm"><%= clique.members.length %> members</h4>
+            <h4 class="text-sm"><%= clique.posts.length %> posts</h4>
+
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% if current_user.admin_cliques.length > 0 %>
+      <% current_user.admin_cliques.each do |clique| %>
+      <div class="grid-rows-1 mt-3 mb-3 break-words">
+        <h2 class="text-xl"><%= link_to clique.title, cliques_path(clique) %></h2>
+      </div>
+      <% end %>
+    <% end %>
+
+</div>
