@@ -13,8 +13,22 @@
 
   <body>
     <%= render 'navbar' %>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <div class="grid grid-cols-5 gap-2">
+      <% if user_signed_in? %>
+      <div class="col-span-1 w-full mt-28">
+        <%= render 'profile_card' %>
+      </div>
+      <% end %>
+      <div class="col-span-3 w-full mx-auto mt-28 px-5 flex">
+        <%= yield %>
+      </div>
+      <% if user_signed_in? %>    
+        <div class="col-span-1 w-full mr-10">
+          <%= render 'my_cliques' %>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
   </body>
 </html>
