@@ -1,10 +1,12 @@
 <div id="<%= dom_id post %>" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-10">
-  <div class="grid grid-cols-auto">
-    <div class="grid grid-rows-auto">
+  <div class="grid grid-cols-12">
+    <div class="cols-span-1 ">
       <%= post.score %>
     </div>
-    <h1 class="text-xl"><%= post.title %></h1>
-    <h4 class="text-sm">u/<%= link_to post.user.username, user_path(post.user) %></h4>
+    <div class="cols-span-1">
+      <h1 class="text-xl"><%= post.title %></h1>
+      <h4 class="text-sm">u/<%= link_to post.user.username, user_path(post.user) %></h4>
+    </div>
   </div>
   <br>
   <p class="text-m"><%= post.content %></p>
