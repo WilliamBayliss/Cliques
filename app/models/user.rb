@@ -31,4 +31,14 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
+  def add_reputation
+    self.user.reputation += 1
+    self.user.save
+  end
+
+  def subtract_reputation
+    self.user.reputation -= 1
+    self.user.save
+  end
 end
