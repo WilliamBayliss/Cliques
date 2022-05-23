@@ -33,6 +33,9 @@ gem "jbuilder"
 # Use Devise for User Auth
 gem "devise"
 
+# Use for voting system on posts/comments
+gem 'acts_as_votable'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
