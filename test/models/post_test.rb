@@ -37,14 +37,4 @@ class PostTest < ActiveSupport::TestCase
   test "it has comments" do
     assert_equal posts(:one).comments.first, comments(:one)
   end
-
-  test "add score increases score" do
-    posts(:one).add_score
-    assert_equal 1, posts(:one).score
-  end
-
-  test "subtract score decreases score" do
-    posts(:one).subtract_score
-    assert_equal -1, posts(:one).score
-  end
 end
