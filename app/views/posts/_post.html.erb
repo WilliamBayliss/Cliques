@@ -1,7 +1,9 @@
 <div id="<%= dom_id post %>" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-10">
   <div class="grid grid-cols-12">
     <div class="cols-span-1 ">
+      <button onclick="<% post.add_score() %>">▲</button>
       <%= post.score %>
+      <button onclick="<% post.subtract_score() %>">▼</button>
     </div>
     <div class="cols-span-1">
       <h1 class="text-xl"><%= post.title %></h1>
