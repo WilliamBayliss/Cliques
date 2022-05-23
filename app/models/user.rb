@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :adminships
   has_many :admin_cliques, through: :adminships, as: :administrator, source: "clique"
 
+  acts_as_voter
+  
   attr_writer :login
 
   def login
