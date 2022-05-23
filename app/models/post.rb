@@ -5,12 +5,12 @@ class Post < ApplicationRecord
     has_many :comments, as: :commentable
 
     def add_score
-        self.post.score += 1
-        self.post.save
+        self.score += 1
+        self.save
     end
 
     def subtract_score
-        self.post.score -= 1
-        self.post.save
+        self.score -= 1
+        self.save
     end
 end
