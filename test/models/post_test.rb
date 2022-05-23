@@ -37,4 +37,14 @@ class PostTest < ActiveSupport::TestCase
   test "it has comments" do
     assert_equal posts(:one).comments.first, comments(:one)
   end
+
+  test "it can be upvoted" do
+    posts(:one).upvote_from users(:one)
+    assert_equal 1, posts(:one).get_upvotes.count
+  end
+
+  test "it can be downvoted" do
+    posts(:one).downvote_from users(:one)
+    assert_equal 1, posts(:one).get_downvotes.count
+  end
 end
