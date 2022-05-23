@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :clique
   has_many :comments, as: :commentable
+
 end
