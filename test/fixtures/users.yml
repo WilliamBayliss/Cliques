@@ -3,11 +3,9 @@ one:
   email: "test@test.com"
   username: "user"
   birthday: "12/12/2001"
-  bio: "test"
   reputation: 0
 two: 
   email: "test@test.ca"
   username: "user two"
   birthday: "01/01/2001"
-  bio: "test"
   reputation: 0 
