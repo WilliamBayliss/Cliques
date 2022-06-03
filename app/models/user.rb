@@ -33,4 +33,14 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
+  def update_reputation
+    reputation = 0
+    self.posts.each do |post|
+      reputation += post.cached_votes_score
+    end
+    self.reputation = reputation
+    self.save
+  end
+  private
 end
