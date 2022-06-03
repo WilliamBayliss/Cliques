@@ -43,5 +43,10 @@ class UserTest < ActiveSupport::TestCase
   test "it has cliques through adminships" do
     assert_equal cliques(:two), users(:two).admin_cliques.first
   end
+
+  test "updates reputation" do
+    users(:one).update_reputation()
+    assert_equal 1, users(:one).reputation
+  end
 end
  
