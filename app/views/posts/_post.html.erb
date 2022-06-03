@@ -2,9 +2,9 @@
   <div class="grid grid-cols-12">
     <div class="cols-span-1 ">
       <div class="grid grid-rows-3 justify-items-center">
-      <button onclick="<% post.vote_by voter: current_user, vote: "upvote" %>">▲</button>
-      <%= post.get_upvotes.size - post.get_downvotes.size %>
-      <button onclick="<% post.vote_by voter: current_user, vote: "downvote" %>">▼</button>
+      <%= button_to "▲", post_upvote_path(post), method: :post %>
+        <%= post.get_upvotes.size - post.get_downvotes.size %>
+      <%= button_to "▼", post_downvote_path(post), method: :post %>
       </div>
     </div>
     <div class="cols-span-1">
@@ -15,3 +15,5 @@
   <br>
   <p class="text-m"><%= post.content %></p>
 </div>
+
+
