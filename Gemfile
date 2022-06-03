@@ -36,6 +36,9 @@ gem "devise"
 # Use for voting system on posts/comments
 gem 'acts_as_votable'
 
+# User whenever gem for updating user/clique reputations regularly
+gem 'whenever', require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
