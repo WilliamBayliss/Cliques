@@ -1,6 +1,9 @@
+
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
-    <%= link_to 'Back to posts', posts_path, class: "mb-4 rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+  <%= link_to 'Back to posts', posts_path, class: "mb-4 rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+
+  <%= turbo_frame_tag "post" do %>
 
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -12,5 +15,6 @@
     <div class="inline-block ml-2">
       <%= button_to 'Delete', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-200 font-medium" %>
     </div>
+  <% end %>
   </div>
 </div>
