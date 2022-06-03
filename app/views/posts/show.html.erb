@@ -10,11 +10,16 @@
     <% end %>
 
     <%= render @post %>
+  
 
-    <%= link_to 'Edit', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Delete', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-200 font-medium" %>
-    </div>
   <% end %>
+    <% if current_user == @post.user %>
+    <%= link_to 'Edit', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium", data: { turbo_frame: "post" } %>
+
+    <div class="inline-block ml-2">
+    <%= button_to 'Delete', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-200 font-medium", data: { turbo_frame: "post" } %>
+    </div>
+    <% end %>
+
   </div>
 </div>

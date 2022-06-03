@@ -5,7 +5,7 @@
 
   <div id="posts" class="min-w-full">
     <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
+      <%= turbo_frame_tag "post" do %>
         <%= render 'post', post: post %>
       <% end %>
     <% end %>
