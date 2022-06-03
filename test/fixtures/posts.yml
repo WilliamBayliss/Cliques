@@ -4,7 +4,10 @@ one:
   content: MyString
   user: one
   clique: one
+  cached_votes_score: 1
+
 two: 
   content: MyString
   user: two
   clique: two
+  cached_votes_score: 1
