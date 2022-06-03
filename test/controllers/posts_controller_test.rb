@@ -49,8 +49,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should upvote" do
-    assert_difference(@post.get_upvotes.size, 1) do
-      upvote @post
+    assert_difference("@post.get_upvotes.size", 1) do
+      post post_upvote_url(@post)
     end
   end
 end
