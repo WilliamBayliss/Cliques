@@ -6,4 +6,6 @@ class Clique < ApplicationRecord
     has_many :administrators, through: :adminships, source: :user
 
     has_many :posts, dependent: :destroy
+
+    validates :title, format: { without: /\s/, message: "Title cannot contain spaces." }
 end
