@@ -9,6 +9,8 @@
     </div>
     <div class="cols-span-1">
       <h1 class="text-xl"><%= link_to post.title, post_path(post), data: { turbo_frame: "_top" } %></h1>
+      <h4 class="text-sm">c/<%= link_to post.clique.title, clique_path(post.clique) %></h4>
+
       <h4 class="text-sm">u/<%= link_to post.user.username, user_path(post.user) %></h4>
     </div>
   </div>
