@@ -1,7 +1,17 @@
-<div id="<%= dom_id comment %>">
-  <% if action_name != "show" %>
-    <%= link_to "Show this comment", comment, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this comment', edit_comment_path(comment), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div id="<%= dom_id comment %>" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-10">
+  <div class="grid grid-cols-12">
+    <div class="cols-span-1 ">
+      <div class="grid grid-rows-3 justify-items-center">
+      <%= button_to "▲", comment_upvote_path(comment), method: :post %>
+        <%= post.get_upvotes.size - post.get_downvotes.size %>
+      <%= button_to "▼", comment_downvote_path(comment), method: :post %>
+      </div>
+    </div>
+    <div class="cols-span-1">
+      <h4 class="text-sm">u/<%= comment.user.username %></h4>
+    </div>
+  </div>
+  <br>
+  <p class="text-m"><%= comment.content %></p>
+  <%= render "replies" %>
 </div>
