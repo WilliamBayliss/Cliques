@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-
+  before_action :get_post
   # GET /comments or /comments.json
   def index
     @comments = Comment.all
@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @comment.post_id = @post.id
   end
 
   # GET /comments/1/edit
@@ -23,7 +24,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @comment = current_user.comments.build(comment_params)
-
+    @comment.post_id = @post.id
     respond_to do |format|
       if @comment.save
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
@@ -62,7 +63,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:comment_id])
     @comment.upvote_from current_user
     respond_to do |format|
-      format.html { redirect_to comment_url(@comment) }
+      format.html { redirect_to post_comment_url(@post, @comment) }
     end
   end
   
@@ -70,8 +71,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:comment_id])
     @comment.downvote_from current_user
     respond_to do |format|
-      format.html { redirect_to comment_url(@comment) }
+      format.html { redirect_to post_comment_url(@post, @comment) }
     end
+  end
+
+  def get_post
+    @post = Post.find(params[:post_id])
   end
 
   private
