@@ -3,9 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(cached_votes_score: :desc)
-
-    # TODO: Merge sort to order content by community reputation
+    @posts = Post.all.sort_by{ |post| post.cached_votes_total + post.user.reputation + post.clique.reputation }.reverse!
   end
 
   # GET /posts/1 or /posts/1.json
