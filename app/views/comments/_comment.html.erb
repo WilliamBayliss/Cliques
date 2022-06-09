@@ -2,9 +2,9 @@
   <div class="grid grid-cols-12">
     <div class="cols-span-1 ">
       <div class="grid grid-rows-3 justify-items-center">
-      <%= button_to "▲", comment_upvote_path(comment), method: :post %>
-        <%= post.get_upvotes.size - post.get_downvotes.size %>
-      <%= button_to "▼", comment_downvote_path(comment), method: :post %>
+      <%= button_to "▲", post_comment_upvote_path(@post, comment), method: :post %>
+        <%= comment.get_upvotes.size - comment.get_downvotes.size %>
+      <%= button_to "▼", post_comment_downvote_path(@post, comment), method: :post %>
       </div>
     </div>
     <div class="cols-span-1">
@@ -13,5 +13,5 @@
   </div>
   <br>
   <p class="text-m"><%= comment.content %></p>
-  <%= render "replies" %>
+  <%= render "comments/replies" %>
 </div>
