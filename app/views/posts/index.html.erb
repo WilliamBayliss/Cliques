@@ -2,12 +2,14 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
+  
+  <%= turbo_frame_tag "new_post", src:new_post_path %>
+  
   <div id="posts" class="min-w-full">
-    <% @posts.each do |post| %>
-      <%= turbo_frame_tag "post" do %>
-        <%= render 'post', post: post %>
+      <% @posts.each do |post| %>
+        <%= turbo_frame_tag "post" do %>
+          <%= render 'post', post: post %>
+        <% end %>
       <% end %>
-    <% end %>
   </div>
 </div>
