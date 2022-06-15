@@ -24,7 +24,7 @@
     <%= turbo_frame_tag "new_post_comment", src:new_post_comment_path(@post.id) %>
   </div>
 
-    <div class="mt-5">
+    <div id="comments" class="mt-5">
         <%= render 'comments/comments', comments: @comments %>
     </div>
   </div>
