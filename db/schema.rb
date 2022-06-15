@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_174340) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_195552) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,9 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_174340) do
     t.bigint "user_id", null: false
     t.string "commentable_type"
     t.bigint "commentable_id"
-    t.bigint "post_id", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
-    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -106,7 +104,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_174340) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter"
   end
 
-  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "cliques"
   add_foreign_key "posts", "users"
