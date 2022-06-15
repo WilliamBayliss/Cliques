@@ -1,20 +1,27 @@
 <%= turbo_frame_tag id="new_post_comment" do %>
-  <%= form_with(model: comment, class: "contents") do |form| %>
-    <% if comment.errors.any? %>
-      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  <div class="w-full mx-auto mb-10 bg-gray-100 px-5 pb-5 pt-5">
+    <%= form_with(model: [@post, comment], class: "contents") do |form| %>
+      <% if comment.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+          <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-        <ul>
-          <% comment.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
+          <ul>
+            <% comment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form.hidden_field :commentable_id, value: commentable.id %>
+      <%= form.hidden_field :commentable_type, value: commentable.class.name.demodulize %>
+      <div class="ml-10">
+        <%= form.text_field :content, class: "mb-5 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "What do you want to say?" %>
+      </div>
+
+      <div class="inline">
+        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
       </div>
     <% end %>
-
-    <div class="inline">
-      <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-    </div>
-  <% end %>
+  </div>
 <% end %>
 
