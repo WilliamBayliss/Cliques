@@ -20,7 +20,10 @@
     <%= button_to 'Delete', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-200 font-medium", data: { turbo_frame: "post" } %>
     </div>
     <% end %>
-    <% turbo_stream.append "comments",  %>
+  <div class="mt-5">
+    <%= turbo_frame_tag "new_post_comment", src:new_post_comment_path(@post.id) %>
+  </div>
+
     <div class="mt-5">
         <%= render 'comments/comments', comments: @comments %>
     </div>
