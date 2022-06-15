@@ -3,7 +3,7 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <%= link_to "Create a Clique!", new_clique_path, class: "mb-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+  <%= button_to "Create a Clique!", new_clique_path, method: "get", class: "mb-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
   
   <%= turbo_frame_tag "new_post", src:new_post_path %>
   
