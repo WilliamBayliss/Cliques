@@ -17,11 +17,11 @@
       </div>
 
       <div class="mt-5">
-        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Add a title!" %>
+        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Add a title!", html: { autocomplete: "off" } %>
       </div>
 
       <div class="my-5">
-        <%= form.text_field :content, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "What's on your mind?" %>
+        <%= form.text_field :content, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "What's on your mind?", html: { autocomplete: "off" } %>
       </div>
 
       <div class="inline">
