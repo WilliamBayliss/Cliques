@@ -1,7 +1,12 @@
 <div id="<%= dom_id clique %>">
   <% if action_name != "show" %>
-    <%= link_to "Show this clique", clique, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this clique', edit_clique_path(clique), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to clique do %>
+    <div class="mt-4 ml-5 mr-5">
+      <h2 class="text-3xl"><%= clique.title%></h1>
+      <div class="mt-2"></div>
+      <h4 class="text-1xl"><%= clique.description %></h4>
+    </div>
+    <% end %>
     <hr class="mt-6">
   <% end %>
 </div>
