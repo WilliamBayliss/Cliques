@@ -3,7 +3,7 @@ class CliquesController < ApplicationController
 
   # GET /cliques or /cliques.json
   def index
-    @cliques = Clique.all
+    @cliques = current_user.cliques
   end
 
   # GET /cliques/1 or /cliques/1.json
