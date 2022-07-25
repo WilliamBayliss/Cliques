@@ -26,6 +26,7 @@ class CliquesController < ApplicationController
 
     respond_to do |format|
       if @clique.save
+        Adminship.create(user: current_user, clique: @clique)
         format.html { redirect_to clique_url(@clique), notice: "Clique was successfully created." }
         format.json { render :show, status: :created, location: @clique }
       else
