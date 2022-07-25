@@ -66,6 +66,6 @@ class CliquesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def clique_params
-      params.fetch(:clique, {})
+      params.require(:clique).permit(:title, :description)
     end
 end
