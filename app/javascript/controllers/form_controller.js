@@ -1,8 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form"]
-  reset() {
-    this.formTarget.reset();
+  clearInputs() {
+    this.element.reset();
   }
 }
