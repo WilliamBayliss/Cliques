@@ -24,6 +24,8 @@
   <div class="mt-5">
     <%= turbo_frame_tag "new_post_comment", src:new_post_comment_path(@post.id) %>
   </div>
+  <% else %>
+  <div class="mt-5 mb-5"></div>
   <% end %>
 
     <div id="comments" class="mt-5">
