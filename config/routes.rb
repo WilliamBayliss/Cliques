@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friendships
   resources :cliques
   resources :posts do
     post 'upvote' => 'posts#upvote', as: :upvote
