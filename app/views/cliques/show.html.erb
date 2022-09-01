@@ -2,7 +2,21 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-  <%= button_to "Back", root_path, class: "mb-4 rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+  <div class="grid grid-cols-7">
+    <div class="col-span-5">
+      <%= button_to "Back", root_path, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    </div>
+    <div>
+    <%= button_to "Administrators", users_path, users: @clique.administrators, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    </div>
+    <div>
+    <%= button_to "Members", users_path, users: @clique.administrators, class: "mb-4 ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    </div>
+  </div>
+  <%= unless @clique.members.include? current_user || @clique.administrators.include? current_user %>
+    TODO BUTTON TO NEW MEMBERSHIP REQUEST
+  <% end %>
+
   <div id="posts" class="min-w-full">
     <% @clique.posts.each do |post| %>
       <%= turbo_frame_tag "post" do %>
@@ -10,4 +24,5 @@
       <% end %>
     <% end %>
   </div>
+
 </div>
