@@ -48,5 +48,9 @@ class UserTest < ActiveSupport::TestCase
     users(:one).update_reputation()
     assert_equal 1, users(:one).reputation
   end
+
+  test "it has friendships" do
+    assert_not nil, users(:one).friendships
+  end
 end
  
