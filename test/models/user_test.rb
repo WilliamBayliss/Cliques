@@ -52,5 +52,9 @@ class UserTest < ActiveSupport::TestCase
   test "it has friendships" do
     assert_not nil, users(:one).friendships
   end
+
+  test "it has friendships when it is friend column" do
+    assert_not nil, users(:two).friendships
+  end
 end
  
