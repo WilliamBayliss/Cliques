@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: :show
+  resources :users, only: [:show, :index]
   root "posts#index"
   devise_for :users, path: '', path_names: { sign_in: 'sign_in', sign_out: 'sign_out', sign_up: 'sign_up' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
