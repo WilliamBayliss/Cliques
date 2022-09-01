@@ -56,5 +56,13 @@ class UserTest < ActiveSupport::TestCase
   test "it has friendships when it is friend column" do
     assert_not nil, users(:two).friendships
   end
+
+  test "it has friends through friendships one way" do
+    assert_equal users(:two), users(:one).friends.first
+  end
+
+  test "it has friends through friendships the other way" do
+    assert_equal users(:one), users(:two).friends.first
+  end
 end
  

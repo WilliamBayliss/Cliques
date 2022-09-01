@@ -9,3 +9,8 @@ two:
   username: "user two"
   birthday: "01/01/2001"
   reputation: 0 
+three: 
+  email: "test@testier.ca"
+  username: "user three"
+  birthday: "01/01/2022"
+  reputation: 0 
