@@ -59,6 +59,16 @@ class CliquesController < ApplicationController
     end
   end
 
+  def users
+    @clique = Clique.find(params[:clique_id])
+    @users = @clique.members
+  end
+
+  def administrators
+    @clique = Clique.find(params[:clique_id])
+    @users = @clique.administrators
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_clique
