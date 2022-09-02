@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :cliques
+  resources :cliques do
+    get 'users'
+    get 'administrators'
+  end
   resources :posts do
     post 'upvote' => 'posts#upvote', as: :upvote
     post 'downvote' => 'posts#downvote', as: :downvote
