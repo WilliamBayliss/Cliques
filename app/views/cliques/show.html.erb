@@ -7,15 +7,12 @@
       <%= button_to "Back", root_path, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
     </div>
     <div>
-    <%= button_to "Administrators", users_path, users: @clique.administrators, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    <%= button_to "Members", clique_users_path(@clique), method: :get, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
     </div>
     <div>
-    <%= button_to "Members", users_path, users: @clique.administrators, class: "mb-4 ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    <%= button_to "Administrators", clique_administrators_path(@clique), method: :get, class: "mb-4 ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
     </div>
   </div>
-  <%= unless @clique.members.include? current_user || @clique.administrators.include? current_user %>
-    TODO BUTTON TO NEW MEMBERSHIP REQUEST
-  <% end %>
 
   <div id="posts" class="min-w-full">
     <% @clique.posts.each do |post| %>
