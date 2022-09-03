@@ -8,7 +8,7 @@
 <div id="members" class="min-w-full">
     <% @users.each do |user| %>
         <div class="m-5 bg-grey-600">
-            <%= user.username %>
+            <%= link_to user.username, users_path(user.id) %>
 
             <p>Reputation: <%= user.reputation %></p>
             <p>Posts: <%= user.posts.count %></p>
