@@ -1,0 +1,14 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+    <div class="m-5 bg-grey-600">
+    <%= link_to user.username, users_path(user.id) %>
+    <p>Reputation: <%= user.reputation %></p>
+    <p>Posts: <%= user.posts.count %></p>
+    </div>
+
+    <%= render: @posts, posts: user.posts%>
+
+
+</div>
