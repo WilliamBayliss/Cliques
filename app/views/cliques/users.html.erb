@@ -7,12 +7,24 @@
 </div>
 <div id="members" class="min-w-full">
     <% @users.each do |user| %>
-        <div class="m-5 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-5">
-            <%= link_to user.username, users_path(user), class: "font-bold text-3xl" %>
+        <div class="m-5 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-5 grid grid-cols-3">
+          <div class="column">
+            <% if user.pfp == nil %>
+              <div class="m-2">
+                <%= image_tag("nopfp.webp", size: "180x180") %>
+              </div>
+            <% else %>
+              <div class="m-2">
+                <%= image_tag(user.pfp) %>
+              </div>
+            <% end %>
+          </div>
+          <div class="column">
+            <%= link_to user.username, user_path(user), class: "font-bold text-3xl mt-3" %>
 
             <p class="mt-5">Reputation: <%= user.reputation %></p>
             <p class="mt-2">Posts: <%= user.posts.count %></p>
-
+          </div>
         </div>
     <% end %>
   </div>
