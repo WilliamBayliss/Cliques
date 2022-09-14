@@ -1,5 +1,5 @@
 class AddAcceptanceToAdminships < ActiveRecord::Migration[7.0]
   def change
-    add_column :adminships, :accepted, :boolean
+    add_column :adminships, :accepted, :boolean, default: false
   end
 end

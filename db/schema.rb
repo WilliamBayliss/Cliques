@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_194552) do
     t.bigint "clique_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "accepted"
+    t.boolean "accepted", default: false
     t.index ["clique_id"], name: "index_adminships_on_clique_id"
     t.index ["user_id"], name: "index_adminships_on_user_id"
   end
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_194552) do
     t.bigint "clique_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "accepted"
+    t.boolean "accepted", default: false
     t.index ["clique_id"], name: "index_memberships_on_clique_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
