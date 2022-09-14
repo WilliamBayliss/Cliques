@@ -10,13 +10,13 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
-  has_many :friendships
-  has_many :friends, through: :friendships
-
-  has_many :memberships
+  has_many :memberships, -> { where accepted: true }
+  has_many :membership_requests, -> { where accepted: false }, class_name: "Membership"
   has_many :cliques, through: :memberships, as: :member
 
+
   has_many :adminships
+  has_many :adminship_requests, -> { where accepted: false }, class_name: "Adminship"
   has_many :admin_cliques, through: :adminships, as: :administrator, source: "clique"
 
   acts_as_voter
