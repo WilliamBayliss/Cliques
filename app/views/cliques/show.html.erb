@@ -2,16 +2,31 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-  <div class="grid grid-cols-7">
-    <div class="col-span-5">
-      <%= button_to "Back", root_path, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+  <div class="bg-gray-100 mt-5 mb-5 p-5">
+    <div class="grid grid-cols-7">
+      <div class="col-span-2"></div>
+      <h1 class="text-4xl font-heavy ml-5 mb-5"><%= @clique.title %></h1>
     </div>
-    <div>
-    <%= button_to "Members", clique_users_path(@clique), method: :get, class: "mb-4 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    <div class="mr-5 ml-5">
+      <%= @clique.description %>
     </div>
-    <div>
-    <%= button_to "Administrators", clique_administrators_path(@clique), method: :get, class: "mb-4 ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    <div class="grid grid-cols-6 mt-5">
+      <div class="col-span-4 m-1">
+        <%= button_to "Back", root_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      </div>
+      <div class="mr-5 m-1">
+      <%= button_to "Members", clique_users_path(@clique), method: :get, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      </div>
+      <div class="m-1">
+      <%= button_to "Administrators", clique_administrators_path(@clique), method: :get, class: "ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      </div>
     </div>
+
+    <% unless @clique.members.include?(current_user) %>
+    <div class="mx-auto">
+      <%= button_to "Request to Join", Membership.create(user: current_user, clique: @clique), class: "mb-4 ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+    </div>
+    <% end %>
   </div>
 
   <div id="posts" class="min-w-full">
