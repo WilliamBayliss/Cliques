@@ -1,5 +1,6 @@
 class Clique < ApplicationRecord
-    has_many :memberships
+    has_many :memberships, -> { where accepted: true }
+    has_many :membership_requests, -> { where accepted: false }, class_name: "Membership"
     has_many :members, through: :memberships, source: :user
 
     has_many :adminships
