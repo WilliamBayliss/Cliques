@@ -23,7 +23,7 @@
 
     <div id="posts" class="mx-auto md:w-3/3 w-3/3">
       <% @user.posts.each do |post| %>
-        <%= render 'posts/post', post: post %>
+        <%= render 'posts/anonymous_post', post: post %>
       <% end %>
     
     </div>
