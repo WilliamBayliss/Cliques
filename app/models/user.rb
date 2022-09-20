@@ -11,8 +11,9 @@ class User < ApplicationRecord
   has_many :comments
 
   has_many :memberships, -> { where accepted: true }
-  has_many :membership_requests, -> { where accepted: false }, class_name: "Membership"
   has_many :cliques, through: :memberships, as: :member
+
+  has_many :membership_requests, -> { where accepted: false }, class_name: "Membership"
 
   has_many :adminships
   has_many :adminship_requests, -> { where accepted: false }, class_name: "Adminship"
