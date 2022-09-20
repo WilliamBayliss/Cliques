@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :cliques do
-    get 'users'
+    get 'members'
     get 'administrators'
+    get 'requests'
   end
   resources :posts do
     post 'upvote' => 'posts#upvote', as: :upvote
