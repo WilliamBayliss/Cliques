@@ -59,7 +59,7 @@ class CliquesController < ApplicationController
     end
   end
 
-  def users
+  def members
     @clique = Clique.find(params[:clique_id])
     @users = @clique.members
   end
@@ -67,6 +67,11 @@ class CliquesController < ApplicationController
   def administrators
     @clique = Clique.find(params[:clique_id])
     @users = @clique.administrators
+  end
+
+  def requests
+    @clique = Clique.find(params[:clique_id])
+    @requests = @clique.membership_requests
   end
 
   private
