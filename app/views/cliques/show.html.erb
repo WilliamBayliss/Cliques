@@ -4,9 +4,14 @@
   <% end %>
   <div class="bg-gray-100 mt-5 mb-5 p-5">
     <div class="grid grid-cols-7">
-      <div class="col-span-2"></div>
-      <h1 class="text-4xl font-heavy ml-5 mb-5"><%= @clique.title %></h1>
+      <div class="col-span-2">
+        <h1 class="text-4xl font-heavy ml-5 mb-5"><%= @clique.title %></h1>
+      </div>
+      <% if @clique.administrators.include?(current_user) %>
+        <%= button_to "Requests", clique_requests_path(@clique), method: :get, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      <% end %>
     </div>
+
     <div class="mr-5 ml-5">
       <%= @clique.description %>
     </div>
@@ -15,7 +20,7 @@
         <%= button_to "Back", root_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
       </div>
       <div class="mr-5 m-1">
-      <%= button_to "Members", clique_users_path(@clique), method: :get, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      <%= button_to "Members", clique_members_path(@clique), method: :get, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
       </div>
       <div class="m-1">
       <%= button_to "Administrators", clique_administrators_path(@clique), method: :get, class: "ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
