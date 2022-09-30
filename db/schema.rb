@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_14_194552) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_30_173658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_194552) do
     t.datetime "updated_at", null: false
     t.boolean "accepted", default: false
     t.index ["clique_id"], name: "index_memberships_on_clique_id"
+    t.index ["user_id", "clique_id"], name: "index_memberships_on_user_id_and_clique_id", unique: true
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
