@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       post 'downvote' => 'comments#downvote', as: :downvote
     end
   end
+  resources :memberships do
+    post 'accept' => 'memberships#accept', as: :accept
+  end
 
   resources :users, only: [:show]
   
