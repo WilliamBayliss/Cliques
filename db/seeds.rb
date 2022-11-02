@@ -6,19 +6,20 @@ c1 = Clique.create! :title => "TheClubhouse", description: "Your bones don't bre
 c2 = Clique.create! :title => "funny", description: "Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass."
 c3 = Clique.create! :title => "photos", description: "You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man."
 c4 = Clique.create! :title => "TheLab", description: "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
+c5 = Clique.create! :title => "Exclusive", description: "You don't belong here."
 
-Membership.create! :user => u1, :clique => c1
-Membership.create! :user => u1, :clique => c2
-Membership.create! :user => u1, :clique => c3
-Membership.create! :user => u1, :clique => c4
-Membership.create! :user => u2, :clique => c1
-Membership.create! :user => u2, :clique => c2
-Membership.create! :user => u2, :clique => c3
-Membership.create! :user => u2, :clique => c4
-Membership.create! :user => u3, :clique => c1
-Membership.create! :user => u3, :clique => c2
-Membership.create! :user => u3, :clique => c3
-Membership.create! :user => u3, :clique => c4
+Membership.create! :user => u1, :clique => c1, :accepted => true
+Membership.create! :user => u1, :clique => c2, :accepted => true
+Membership.create! :user => u1, :clique => c3, :accepted => true
+Membership.create! :user => u1, :clique => c4, :accepted => true
+Membership.create! :user => u2, :clique => c1, :accepted => true
+Membership.create! :user => u2, :clique => c2, :accepted => true
+Membership.create! :user => u2, :clique => c3, :accepted => true
+Membership.create! :user => u2, :clique => c4, :accepted => true
+Membership.create! :user => u3, :clique => c1, :accepted => true
+Membership.create! :user => u3, :clique => c2, :accepted => true
+Membership.create! :user => u3, :clique => c3, :accepted => true
+Membership.create! :user => u3, :clique => c4, :accepted => true
 
 p1 = u1.posts.create! :clique_id => c1.id, :title => "test", :content => "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
 c1 = p1.comments.create! :user_id => u1.id, commentable_id: "1", commentable_type: "Post", :content => "TEST"
@@ -40,3 +41,4 @@ p15 = u1.posts.create! :clique_id => c4.id, :title => "test", :content => "The p
 p16 = u2.posts.create! :clique_id => c4.id, :title => "test", :content => "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
 p17 = u3.posts.create! :clique_id => c4.id, :title => "test", :content => "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
 p18 = u2.posts.create! :clique_id => c4.id, :title => "test", :content => "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
+u2.posts.create! :clique_id => c5.id, :title => "Here I am.", :content => "Here I remain"
