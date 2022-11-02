@@ -27,9 +27,9 @@
       </div>
     </div>
 
-    <% unless @clique.members.include?(current_user) %>
+    <% unless @clique.members.include?(current_user) || current_user.membership_requests.exists?(clique_id: @clique.id) %>
     <div class="mx-auto">
-      <%= button_to "Request to Join", Membership.create(user: current_user, clique: @clique), class: "mb-4 ml-5 rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      <%= render 'memberships/new', membership: Membership.new, clique: @clique %>
     </div>
     <% end %>
   </div>
