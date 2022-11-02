@@ -1,0 +1,19 @@
+<%= form_with(model: membership) do |form| %>
+  <% if membership.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(membership.errors.count, "error") %> prohibited this clique from being saved:</h2>
+
+      <ul>
+        <% membership.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :clique_id, value: @clique.id, class: "mb-5 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "What is your Clique all about?" %>
+
+  <div class="inline">
+    <%= form.submit "Request to Join", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
