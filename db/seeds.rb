@@ -20,6 +20,13 @@ Membership.create! :user => u3, :clique => c1, :accepted => true
 Membership.create! :user => u3, :clique => c2, :accepted => true
 Membership.create! :user => u3, :clique => c3, :accepted => true
 Membership.create! :user => u3, :clique => c4, :accepted => true
+Membership.create :user => u3, :clique => c5, :accepted => false
+
+Adminship.create! :user => u1, :clique => c1, :accepted => true
+Adminship.create! :user => u1, :clique => c2, :accepted => true
+Adminship.create! :user => u2, :clique => c1, :accepted => true
+Adminship.create! :user => u2, :clique => c2, :accepted => true
+Adminship.create! :user => u1, :clique => c5, :accepted => true
 
 p1 = u1.posts.create! :clique_id => c1.id, :title => "test", :content => "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
 c1 = p1.comments.create! :user_id => u1.id, commentable_id: "1", commentable_type: "Post", :content => "TEST"
